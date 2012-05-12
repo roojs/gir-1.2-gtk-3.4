@@ -1,0 +1,53 @@
+--- original/GLib-2.0.gir	2012-05-12 19:51:47.919208339 +0800
++++ GLib-2.0.gir	2012-05-12 22:13:26.081820459 +0800
+@@ -7433,15 +7433,15 @@
+           <type name="IOStatus" c:type="GIOStatus"/>
+         </return-value>
+         <parameters>
+-          <parameter name="str_return" transfer-ownership="none">
++          <parameter name="str_return" transfer-ownership="none" direction="out">
+             <doc xml:whitespace="preserve">The line read from the #GIOChannel, including the line terminator. This data should be freed with g_free() when no longer needed. This is a nul-terminated string. If a @length of zero is returned, this will be %NULL instead.</doc>
+             <type name="utf8" c:type="gchar**"/>
+           </parameter>
+-          <parameter name="length" transfer-ownership="none">
++          <parameter name="length" transfer-ownership="none" direction="out">
+             <doc xml:whitespace="preserve">location to store length of the read data, or %NULL</doc>
+             <type name="gsize" c:type="gsize*"/>
+           </parameter>
+-          <parameter name="terminator_pos" transfer-ownership="none">
++          <parameter name="terminator_pos" transfer-ownership="none" direction="out">
+             <doc xml:whitespace="preserve">location to store position of line terminator, or %NULL</doc>
+             <type name="gsize" c:type="gsize*"/>
+           </parameter>
+@@ -7456,7 +7456,7 @@
+           <type name="IOStatus" c:type="GIOStatus"/>
+         </return-value>
+         <parameters>
+-          <parameter name="buffer" transfer-ownership="none">
++          <parameter name="buffer" transfer-ownership="none" direction="out">
+             <doc xml:whitespace="preserve">a #GString into which the line will be written. If @buffer already contains data, the old data will be overwritten.</doc>
+             <type name="String" c:type="GString*"/>
+           </parameter>
+@@ -33610,7 +33610,7 @@
+           <doc xml:whitespace="preserve">function to run in the child just before exec()</doc>
+           <type name="SpawnChildSetupFunc" c:type="GSpawnChildSetupFunc"/>
+         </parameter>
+-        <parameter name="user_data" transfer-ownership="none">
++        <parameter name="user_data" transfer-ownership="none"  allow-none="1">
+           <doc xml:whitespace="preserve">user data for @child_setup</doc>
+           <type name="gpointer" c:type="gpointer"/>
+         </parameter>
+@@ -35773,11 +35773,11 @@
+           <doc xml:whitespace="preserve">function to call</doc>
+           <type name="SourceFunc" c:type="GSourceFunc"/>
+         </parameter>
+-        <parameter name="data" transfer-ownership="none">
++        <parameter name="data" transfer-ownership="none"  allow-none="1">
+           <doc xml:whitespace="preserve">data to pass to @function</doc>
+           <type name="gpointer" c:type="gpointer"/>
+         </parameter>
+-        <parameter name="notify" transfer-ownership="none" scope="async">
++        <parameter name="notify" transfer-ownership="none" scope="async"  allow-none="1">
+           <doc xml:whitespace="preserve">function to call when the timeout is removed, or %NULL</doc>
+           <type name="DestroyNotify" c:type="GDestroyNotify"/>
+         </parameter>

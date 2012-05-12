@@ -1,0 +1,37 @@
+--- original/Gtk-3.0.gir	2012-05-12 21:49:32.031051552 +0800
++++ Gtk-3.0.gir	2012-05-12 22:16:11.906131852 +0800
+@@ -45953,8 +45953,8 @@
+         <return-value transfer-ownership="none">
+           <type name="none" c:type="void"/>
+         </return-value>
+-      </method>
+-      <method name="popup" c:identifier="gtk_menu_popup" introspectable="0">
++      </method>     
++      <method name="popup" c:identifier="gtk_menu_popup" introspectable="1">
+         <doc xml:whitespace="preserve">Displays a menu and makes it available for selection.
+ 
+ Applications can use this function to display context-sensitive
+@@ -45997,7 +45997,7 @@
+             <doc xml:whitespace="preserve">a user supplied function used to position the menu, or %NULL</doc>
+             <type name="MenuPositionFunc" c:type="GtkMenuPositionFunc"/>
+           </parameter>
+-          <parameter name="data" transfer-ownership="none">
++          <parameter name="data" transfer-ownership="none" allow-none="1">
+             <doc xml:whitespace="preserve">user supplied data to be passed to @func.</doc>
+             <type name="gpointer" c:type="gpointer"/>
+           </parameter>
+@@ -72878,6 +72878,14 @@
+ information as a table of #GtkTargetEntry, but in
+ an efficient form. This structure should be treated as
+ opaque.</doc>
++      <field name="list" writable="1">
++        <type name="GLib.List" c:type="GList*">
++          <type name="gpointer" c:type="gpointer"/>
++        </type>
++      </field>
++      <field name="ref_count" writable="1">
++        <type name="guint" c:type="guint"/>
++      </field>
+       <constructor name="new" c:identifier="gtk_target_list_new">
+         <doc xml:whitespace="preserve">Creates a new #GtkTargetList from an array of #GtkTargetEntry.</doc>
+         <return-value transfer-ownership="full">
